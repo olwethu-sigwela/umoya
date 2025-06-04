@@ -64,7 +64,7 @@ function SearchButton(){
 function SearchDataList(){
   return (
     <>
-      <form class="max-w-md mx-auto">   
+      <form class="max-w-screen mx-auto">   
         <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
         <div class="relative">
             <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -104,13 +104,24 @@ function SearchBar(){
   )
 }
 
-function SubHeading(props){
+function Heading(props){
   return (
     <>
       <h2 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">{props.text}</h2>
     </>
   )
 }
+
+
+function SubHeading(props){
+  return (
+    <>
+      <h2 className="mb-4 text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">{props.text}</h2>
+    </>
+  )
+}
+
+
 
 function Paragraph(props){
   return (
@@ -124,7 +135,7 @@ function Description(props){
   return (
     <>
       <div>
-        <SubHeading text={props.subHeadingText}/> 
+        <Heading text={props.subHeadingText}/> 
         <Paragraph text={props.paragraphText}/>
       </div>
     </>
