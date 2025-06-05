@@ -7,6 +7,23 @@
   text-align: center;
 }
 
+.bar-chart-container{
+  /* border: thin solid black; */
+  height: 300px;
+  width: 100%;
+  max-width: 500px;
+  /* border-radius: 5px; */
+}
+
+.stats-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* gap: 3rem; */
+  justify-content: center;
+  margin-top: 2rem;
+}
+
 /* .logo {
   height: 6em;
   padding: 1.5em;
