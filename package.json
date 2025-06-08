@@ -11,9 +11,12 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.8",
+    "datatables.net-dt": "^2.3.2",
+    "datatables.net-react": "^1.0.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "recharts": "^2.15.3",
+    "swr": "^2.3.3",
     "tailwindcss": "^4.1.8"
   },
   "devDependencies": {
