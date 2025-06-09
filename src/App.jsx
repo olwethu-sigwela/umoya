@@ -13,6 +13,7 @@ DataTable.use(DT)
 var landingSubHeading = "Find the cheapest data"
 var landingParagraph = "uMoya compares mobile data deals from all the major South African networks and puts them in one place. Instantly find the best-value deals with prices per MB, average prices and more. Save money and stay connected."
 var appName = "umoya"
+const API_URL = "https://umoyaapi.pythonanywhere.com"
 
 
 //"#747bff"
@@ -209,7 +210,7 @@ function HorizontalBarChartContainer(){
   const [chartWidth, setChartWidth] = useState(null)
 
   useEffect(() =>{
-    fetch("http://localhost:8080/prepaid-median-price-per-mb?carrier=all")
+    fetch(API_URL + "/prepaid-median-price-per-mb?carrier=all")
     .then((response) =>{
       return response.json()
     }).then((data) =>{
@@ -254,7 +255,7 @@ function LowestPricesBarChartContainer(){
   const [chartWidth, setChartWidth] = useState(null)
 
   useEffect(() =>{
-    fetch("http://localhost:8080/prepaid-lowest-prices?carrier=all")
+    fetch(API_URL + "/prepaid-lowest-prices?carrier=all")
     .then((response) =>{
       return response.json()
     }).then((data) =>{
@@ -330,7 +331,7 @@ function CheapestBundleTable(){
   const [tableData, setTableData] = useState([])
 
   useEffect(() =>{
-    fetch("http://localhost:8080/prepaid-cheapest-bundle?carrier=all")
+    fetch(API_URL + "/prepaid-cheapest-bundle?carrier=all")
     .then((response) =>{
       return response.json()
     }
@@ -450,7 +451,7 @@ function CarrierBundleTable({carrierName}){
   const [tableData, setTableData] = useState([])
 
   useEffect(() =>{
-    fetch(`http://localhost:8080/prepaid?carrier=${carrierName}`) //TODO: create an API call or extra parameter to this call on the backend that returns this data as a 2-D list instead of a dict/object
+    fetch(API_URL + `/prepaid?carrier=${carrierName}`) //TODO: create an API call or extra parameter to this call on the backend that returns this data as a 2-D list instead of a dict/object
     .then((response) =>{
       return response.json()
     }
@@ -500,7 +501,7 @@ function LineChartContainer({carrierName}){
   }
 
   useEffect(() =>{
-    fetch(`http://localhost:8080/prepaid-price-per-mb-vs-size?carrier=${carrierName}&data-type=objects`)
+    fetch(API_URL + `/prepaid-price-per-mb-vs-size?carrier=${carrierName}&data-type=objects`)
     .then((response) =>{
       return response.json()
     }).then((data) =>{
