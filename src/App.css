@@ -38,10 +38,12 @@
   margin-bottom: 0.2rem;
 }
 
-input[type="search"]{
+.dt-search input[type="search"]{
   border: 1px solid oklch(0.872 0.01 258.338);
   border-radius: 4px;
   margin: 0.1rem;
+  width: 65%;
+  max-width:200px;
 }
 
 select[class="dt-input"]:hover{
@@ -60,8 +62,16 @@ select[class="dt-input"]:hover{
   border-radius: 2px;
   /* margin: 0.05rem; */
   width: fit-content;
-  padding-left: 0.1rem;
-  padding-right: 0.1rem;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+
+  
+}
+
+@media screen and (max-width:500px){
+  .dt-paging-button{
+    padding:0.5rem;
+  }
 }
 
 .dt-paging-button:hover{

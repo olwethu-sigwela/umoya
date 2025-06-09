@@ -208,6 +208,7 @@ function HorizontalBarChartContainer(){
 
   const [chartData, setChartData] = useState([])
   const [chartWidth, setChartWidth] = useState(null)
+  const [fontSize, setFontSize] = useState(16)
 
   useEffect(() =>{
     fetch(API_URL + "/prepaid-median-price-per-mb?carrier=all")
@@ -221,6 +222,15 @@ function HorizontalBarChartContainer(){
 
   function updateTitle(containerWidth){
     setChartWidth(containerWidth)
+    if (containerWidth > 400){
+      setFontSize(16)
+    }else{
+      if (containerWidth > 330){
+        setFontSize(10)
+      }else{
+        setFontSize(7)
+      }
+    }
   }
 
   return (
@@ -237,7 +247,7 @@ function HorizontalBarChartContainer(){
             </text>
             <Bar stroke={color1} fill={color1} dataKey="Median Price per MB" radius = {[8, 8, 0, 0]}/>
             <CartesianGrid stroke="#ccc" strokeDasharray="3 3"/>
-            <XAxis dataKey="Carrier"/>
+            <XAxis dataKey="Carrier" interval={0} tick={{fontSize:`${fontSize}px`}}/>
             <YAxis label={{ value: 'Price / MB (ZAR/MB)', angle: -90, position: 'insideBottomLeft', offset: 20, viewBox: {height: 244, width: 60, x: 15, y: -10}}}/>
             <Tooltip cursor={{fill:color1 + "33"}}/>
           </BarChart>
@@ -253,6 +263,7 @@ function LowestPricesBarChartContainer(){
 
   const [chartData, setChartData] = useState([])
   const [chartWidth, setChartWidth] = useState(null)
+  const [fontSize, setFontSize] = useState(16)
 
   useEffect(() =>{
     fetch(API_URL + "/prepaid-lowest-prices?carrier=all")
@@ -267,6 +278,16 @@ function LowestPricesBarChartContainer(){
   
   function updateTitle(containerWidth){
     setChartWidth(containerWidth)
+    if (containerWidth > 400){
+      setFontSize(16)
+    }else{
+      if (containerWidth > 330){
+        setFontSize(10)
+      }else{
+        setFontSize(7)
+      }
+      
+    }
   }
   
   function updateTitle2(e){
@@ -286,7 +307,7 @@ function LowestPricesBarChartContainer(){
             </text>
             <Bar stroke={color1} fill={color1} dataKey="Price (ZAR)" radius = {[8, 8, 0, 0]}/>
             <CartesianGrid stroke="#ccc" strokeDasharray="3 3" onChange={e => updateTitle2(e)}/>
-            <XAxis dataKey="Carrier"/>
+            <XAxis dataKey="Carrier" interval={0} tick={{fontSize:`${fontSize}px`}}/>
             <YAxis label={{ value: 'Price (ZAR)', angle: -90, position: 'insideLeft', offset: 20, viewBox: {height: 244, width: 60, x: 0, y: 55}}}/>
             <Tooltip cursor={{fill:color1 + '33'}}/>
           </BarChart>
